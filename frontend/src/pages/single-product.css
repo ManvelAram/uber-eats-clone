@@ -1,0 +1,11 @@
+.burger-item{
+    width: 10%;
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: center;
+    padding: 30px;
+    margin-left: 15px;
+}
+
+.burger-item img{
+    width: 60%;
+}

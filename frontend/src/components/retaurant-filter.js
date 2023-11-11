@@ -1,7 +1,7 @@
 
 export default function RestaurantFilter () {
 
- return<>
+ return <>
     Filter Page
  </>
 }

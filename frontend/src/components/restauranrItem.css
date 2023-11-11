@@ -1,0 +1,29 @@
+
+
+.restaurantImage {
+    width: 320px;
+    height: 200px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: center;
+
+}
+
+.nav-row img{
+    width: 70%;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+   
+li {
+    list-style-type: none;
+    
+}

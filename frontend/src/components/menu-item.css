@@ -1,0 +1,17 @@
+.info-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.dz{
+    object-fit: cover;
+    width: 100%;
+    height: 225px;
+}
+
+.photo {
+    width: 350px;
+    height: 280px;
+}
+

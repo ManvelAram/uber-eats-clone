@@ -1,0 +1,26 @@
+.burger-item{
+    width: 10%;
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: center;
+    padding: 30px;
+    margin-left: 15px;
+}
+
+.burger-item img{
+    width: 60%;
+}
+
+.buttons{
+    padding-left: 80%;
+    text-align: center;
+}
+.plus{
+    margin-left: 10px;
+}
+.buttons input{
+    width: 22px;
+    height: 22px;
+}
+.burger-info{
+    margin-top: 50px;
+}

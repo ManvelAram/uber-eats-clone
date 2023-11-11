@@ -1,0 +1,24 @@
+
+/* .dz {
+    width: 100%;
+    height: 400px; 
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+/* .dz{
+    object-fit: cover;
+    width: 100%;
+    height: 225px;
+}
+
+.photo {
+    width: 350px;
+    height: 280px;
+} */
+
+.item-parent {
+    display: flex;
+    
+}
