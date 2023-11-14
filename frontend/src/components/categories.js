@@ -75,12 +75,12 @@ export default function Categories () {
                 <nav >
                     <ul className='nav-row'>{categories.map((category)=> 
                        <li>
-                        <a className='' href=''>
+                        
                            <div>
                            <img alt="" src={category.icon}></img>
                            </div>
                            <span>{category.name}</span>
-                        </a>
+                        
                         </li>
                     )}
                         
