@@ -15,3 +15,7 @@
     height: 280px;
 }
 
+.menu-item-parent{
+    border: 2px solid black;
+    margin-right: 10px;
+}

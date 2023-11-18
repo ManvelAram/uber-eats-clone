@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import './menu-item.css'
 import { Link } from 'react-router-dom'
 
-export default function MenuItem ({prop}) {
-    
+export default function MenuItem ({prop, onAddToCard}) {
+
+
     return <>
         
        
@@ -17,9 +19,11 @@ export default function MenuItem ({prop}) {
                     <span>{prop.price}</span>
                     <span> • {prop.cal}</span>
                 </div>
+                
         </div>
       
         </Link>
+        <button type='button' onClick={() => onAddToCard(prop.id)}>ADD TO BASKET{prop.id}</button>
       
 
     </>
