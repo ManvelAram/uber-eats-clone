@@ -19,7 +19,16 @@ export default function BasketItem ({cart, onCountChange}) {
       }
       };
     return <>
-        <tr>
+
+         <tr>
+            <td>             
+                <span> {cart.id}</span>           
+            </td>
+            <td>
+                <span >{cart.count}</span> 
+            </td>
+        </tr>
+        {/* <tr>
             <td>             
                 <img alt="" width={150}  src={cart.img}/>             
             </td>
@@ -37,7 +46,7 @@ export default function BasketItem ({cart, onCountChange}) {
                 <td>
                      <span > TOTAL { (cart.price * counter).toFixed(2)}</span> 
                 </td>
-        </tr>
+        </tr> */}
     </>
 }
 

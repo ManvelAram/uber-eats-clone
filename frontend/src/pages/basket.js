@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BasketItem from '../components/basket-item'
 import './basket.css'
 
@@ -47,12 +47,20 @@ const productsList = [
     },
 ]
 export default function Basket () {
+    const [basketItem, setBasketItem] = useState([]);
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('basket'));
+        if(items) {
+            setBasketItem(items)
+        }
+    }, [])
   
     const [grandTotal, setGrandTotal] = useState(0)
     function countChange (id, count) {
-        const pr = productsList.find((k)=> k.id===id);
+        const pr = basketItem.find((k)=> k.id===id);
         pr.count = count;
-        const grandTotalAmount = productsList.reduce((a,b) =>{
+        const grandTotalAmount = basketItem.reduce((a,b) =>{
             return(a + b.count * b.price)
         },0)
         setGrandTotal(grandTotalAmount)
@@ -63,7 +71,7 @@ export default function Basket () {
        <form>
             <table className="basket-table" cellPadding={46}>
                 <tbody>
-                    {productsList.map((cart, index)=>
+                    {basketItem.map((cart, index)=>
                      <BasketItem onCountChange={countChange} key={index} cart={cart}></BasketItem>
                     )}
                 </tbody>
