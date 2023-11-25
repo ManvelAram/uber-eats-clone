@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export default function Categories () {
+export default function Categories ({selectCategory}) {
     // const categories = [
     //     {
     //         name: 'Deals',
@@ -89,11 +89,15 @@ export default function Categories () {
                 <nav >
                     <ul className='nav-row'>{categories.map((category)=> 
                        <li>
-                        
-                           <div>
-                           <img alt="" src={category.icon}></img>
-                           </div>
-                           <span>{category.name}</span>
+                            <a onClick={ () => {
+                                selectCategory(category.id)
+                            }}>
+                                <div>
+                                    <img alt="" src={category.icon}></img>
+                                </div>
+                                <span>{category.name}</span>
+                            </a>
+                          
                         
                         </li>
                     )}

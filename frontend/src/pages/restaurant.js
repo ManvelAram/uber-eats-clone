@@ -39,11 +39,19 @@ useEffect(() => {
         console.error('You got some error', error)
     })
 },[])
-    
+    function onSelectCategory(id) {
+        axios.get(`http://localhost:3001/restaurants?categoryId=${id}`)
+        .then(response => {
+            setRestaurants(response.data);
+        })
+        .catch(error => {
+            console.error('You got some error', error)
+        })
+    }
 
     return<>
 
-        <Categories></Categories>
+        <Categories selectCategory={onSelectCategory}></Categories>
         <div className="restaurant-parent">
             {restaurants.map((restaurant) =>
                 <RestaurantItem data={restaurant}></RestaurantItem>

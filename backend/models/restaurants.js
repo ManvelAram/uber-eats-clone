@@ -6,5 +6,6 @@ var RestaurantsSchema = new Schema({
     icon : String,
     deliveryTime : String,
     id : Number,
+    categoryIds: [Number]
 });
 module.exports = mongoose.model('Restaurants', RestaurantsSchema);

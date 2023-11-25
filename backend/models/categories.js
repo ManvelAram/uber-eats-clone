@@ -4,6 +4,6 @@ var Schema   = mongoose.Schema;
 var CategoriesSchema = new Schema({
     name : String,
     icon : String,
-    categoryId : Number
+    id : Number
 });
 module.exports = mongoose.model('Categories', CategoriesSchema);
