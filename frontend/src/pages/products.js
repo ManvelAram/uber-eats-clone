@@ -47,11 +47,11 @@ export default function Products () {
 
     const [productsList, setProductsList] = useState([]);
     const [restaurantData, setRestaurantData] = useState({});
+    const [basketItems, setBasketItems] = useState([])
 
     let { id } = useParams();
 
     useEffect(()=>{
-        console.log(id)
         axios.get(`http://localhost:3001/products/${id}`)
         .then(response => {
             setProductsList(response.data)
@@ -68,8 +68,14 @@ export default function Products () {
             console.log('You got some error', error)
         })
     },[])
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('basket'));
+        if(items) {
+            setBasketItems(items)
+        }
+    }, [])
 
-    const [basketItems, setBasketItems] = useState([])
+    
 
     function addToCard (id) {
        const tempArr = basketItems.slice();
