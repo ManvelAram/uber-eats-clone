@@ -7,5 +7,6 @@ var ProductsSchema = new Schema({
     title : String,
     price : String,
     cal : String,
+    restaurantId: Number
 });
 module.exports = mongoose.model('Products', ProductsSchema);

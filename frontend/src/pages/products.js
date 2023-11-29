@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './products.css'
 import MenuItem from '../components/menu-item'
+import { useParams } from 'react-router-dom';
 
 
 
@@ -45,11 +46,23 @@ export default function Products () {
     // ]
 
     const [productsList, setProductsList] = useState([]);
+    const [restaurantData, setRestaurantData] = useState({});
+
+    let { id } = useParams();
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/products`)
+        console.log(id)
+        axios.get(`http://localhost:3001/products/${id}`)
         .then(response => {
             setProductsList(response.data)
+        })
+        .catch(error => {
+            console.log('You got some error', error)
+        })
+
+        axios.get(`http://localhost:3001/restaurant/${id}`)
+        .then(response => {
+            setRestaurantData(response.data)
         })
         .catch(error => {
             console.log('You got some error', error)
@@ -75,18 +88,19 @@ export default function Products () {
 
     return <>
         <div>
-            <img  alt="" src="78f3e5246c024ab98e8b711ab5f92b2f/e39556ef1e4c4565bc6c7dbd8b90869c.jpeg" 
-                srcset="https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/e39556ef1e4c4565bc6c7dbd8b90869c.jpeg 240w,https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/7915c4a78a9f94ed56316c7c4dc0ec89.jpeg 550w,https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/67b1ce06a25a64dc4a71581bb39c36c6.jpeg 640w,https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/f3376a06b92224efbe50167fb7cb61e4.jpeg 750w,https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/50446f64f31cbefe66558fc47f50a9d6.jpeg 1080w,https://tb-static.uber.com/prod/image-proc/processed_images/78f3e5246c024ab98e8b711ab5f92b2f/c9252e6c6cd289c588c3381bc77b1dfc.jpeg 2880w"
+            <img  alt="" src={restaurantData.icon}
+                srcSet={restaurantData.icon}
                 className="dz"
             />
         </div>
-        <h1>McDonald's® (Burbank)</h1>   
+        <h1>{restaurantData.name}</h1>   
         <h2>Featured items</h2>
         
         <div className='item-parent'>
-            {productsList.map((e)=>
-                <MenuItem prop={e} onAddToCard={addToCard}></MenuItem>
+            {productsList.map((e,i)=>
+                <MenuItem key={i} prop={e} onAddToCard={addToCard}></MenuItem>
             )}
+            
             
         </div>
        

@@ -16,14 +16,14 @@ function App() {
         
       </header>
       <div>
-        <Link  to="/basket"><a className='spacer_32'>Cart</a></Link>  
+        <Link  to="/basket">Cart</Link>  
       </div>
     </div>
     
     <Routes>
       <Route path='/basket' element={<Basket/>}/>
-      <Route path='/products' element={<Products/>}/>
-      <Route path='/singleproduct' element={<SingleProduct/>}/>
+      <Route path='/products/:id' element={<Products/>}/>
+      <Route path='/singleproduct/' element={<SingleProduct/>}/>
       <Route path='/' element={<Restaurant/>}/>
     </Routes>
   </> 

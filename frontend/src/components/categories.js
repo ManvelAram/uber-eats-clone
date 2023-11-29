@@ -87,9 +87,9 @@ export default function Categories ({selectCategory}) {
     return<>
         <div>
                 <nav >
-                    <ul className='nav-row'>{categories.map((category)=> 
-                       <li>
-                            <a onClick={ () => {
+                    <ul className='nav-row'>{categories.map((category, i)=> 
+                       <li key={i}>
+                            <a href="#!" onClick={ () => {
                                 selectCategory(category.id)
                             }}>
                                 <div>

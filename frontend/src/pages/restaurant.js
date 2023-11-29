@@ -53,8 +53,8 @@ useEffect(() => {
 
         <Categories selectCategory={onSelectCategory}></Categories>
         <div className="restaurant-parent">
-            {restaurants.map((restaurant) =>
-                <RestaurantItem data={restaurant}></RestaurantItem>
+            {restaurants.map((restaurant,i) =>
+                <RestaurantItem key={i} data={restaurant}></RestaurantItem>
             )}
         </div>
         
