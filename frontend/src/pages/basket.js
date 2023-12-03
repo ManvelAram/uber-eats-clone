@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import BasketItem from '../components/basket-item'
 import './basket.css'
+import axios from 'axios';
+
 
 
 const productsList = [
@@ -52,9 +54,12 @@ export default function Basket () {
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('basket'));
         if(items) {
-            setBasketItem(items)
+            // setBasketItem(items)
+            axios.post('http://localhost:3001/products', {ids:items.map((e) => e.id)})
+            .then(response => {console.log(response)})
         }
     }, [])
+
   
     const [grandTotal, setGrandTotal] = useState(0)
     function countChange (id, count) {

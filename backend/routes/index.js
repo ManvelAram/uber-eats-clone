@@ -9,6 +9,14 @@ var ProductsModel = require("../models/products");
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+router.post('/products', function(req, res, next) {
+  return ProductsModel.find({restaurantId: 1}).then((data) =>  res.send(data))
+  .catch(error => {
+    console.log(error.message)
+  })
+})
+
 router.get('/restaurants', function(req, res, next) {
     console.log(req.query)
     let query = {};
@@ -125,6 +133,8 @@ router.get('/categories', function(req, res, next) {
   router.get('/orders', function(req, res, next) {
     OrdersModel.find({}).then((data) =>  res.send(data));
   });
+
+ 
 
   module.exports = router;
 
