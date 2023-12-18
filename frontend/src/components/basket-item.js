@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function BasketItem ({cart, onCountChange}) {
-    const [counter, setCounter] = useState(1);
+    const [counter, setCounter] = useState(cart.count);
     
-  
+    useEffect(() =>{
+        // setCounter(cart.count)
+    },[])
     const increase = () => {
       setCounter(counter + 1);
       onCountChange(cart.id, counter+1)
@@ -20,15 +22,8 @@ export default function BasketItem ({cart, onCountChange}) {
       };
     return <>
 
-         <tr>
-            <td>             
-                <span> {cart.id}</span>           
-            </td>
-            <td>
-                <span >{cart.count}</span> 
-            </td>
-        </tr>
-        {/* <tr>
+         
+        <tr>
             <td>             
                 <img alt="" width={150}  src={cart.img}/>             
             </td>
@@ -46,7 +41,7 @@ export default function BasketItem ({cart, onCountChange}) {
                 <td>
                      <span > TOTAL { (cart.price * counter).toFixed(2)}</span> 
                 </td>
-        </tr> */}
+        </tr>
     </>
 }
 

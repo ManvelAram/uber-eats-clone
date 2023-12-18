@@ -5,6 +5,7 @@ import Basket from './pages/basket';
 import Products from './pages/products';
 import Restaurant from './pages/restaurant';
 import SingleProduct from './pages/single-product';
+import Orders from './pages/orders';
 
 function App() {
   return<>
@@ -21,6 +22,7 @@ function App() {
     </div>
     
     <Routes>
+      <Route path='/orders' element={<Orders/>}/>
       <Route path='/basket' element={<Basket/>}/>
       <Route path='/products/:id' element={<Products/>}/>
       <Route path='/singleproduct/' element={<SingleProduct/>}/>

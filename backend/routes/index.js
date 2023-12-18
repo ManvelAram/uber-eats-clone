@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/products', function(req, res, next) {
-  return ProductsModel.find({restaurantId: 1}).then((data) =>  res.send(data))
+  return ProductsModel.find({id: {$in:req.body.ids}}).then((data) =>  res.send(data))
   .catch(error => {
     console.log(error.message)
   })
@@ -130,11 +130,16 @@ router.get('/categories', function(req, res, next) {
 //   ]);
   });
 
-  router.get('/orders', function(req, res, next) {
-    OrdersModel.find({}).then((data) =>  res.send(data));
+  router.post('/orders', function(req, res, next) {
+    
+    OrdersModel.create(req.body).then((data) =>  res.send(data));
   });
 
- 
+  router.get('/orders', function(req, res, next) {
+    OrdersModel.find({}).then((data) =>  res.send(data));
+
+  });
+
 
   module.exports = router;
 
